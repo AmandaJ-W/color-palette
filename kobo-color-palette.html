@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KoboToolbox Color Palette</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f0f4fa;
+    --surface: #ffffff;
+    --border: #dde4ef;
+    --text-primary: #1a2340;
+    --text-secondary: #6b7a99;
+    --text-muted: #9ba8c0;
+    --accent: #2490eb;
+  }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 48px 32px;
+  }
+
+  header {
+    max-width: 900px;
+    margin: 0 auto 48px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .logo-area h1 {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  .logo-area h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 300;
+    margin-top: 6px;
+  }
+
+  .tip {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: 'DM Mono', monospace;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 8px 14px;
+    border-radius: 8px;
+  }
+
+  .section {
+    max-width: 900px;
+    margin: 0 auto 40px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    padding-left: 4px;
+  }
+
+  .palette-grid {
+    display: grid;
+    gap: 12px;
+  }
+
+  .palette-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .palette-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .palette-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .palette-grid.cols-5 { grid-template-columns: repeat(5, 1fr); }
+
+  .color-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    position: relative;
+  }
+
+  .color-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+  }
+
+  .color-swatch {
+    width: 100%;
+    height: 90px;
+    position: relative;
+  }
+
+  .color-swatch.tall { height: 130px; }
+
+  .color-info {
+    padding: 14px 16px;
+  }
+
+  .color-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+
+  .color-hex {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .color-extra {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 3px;
+  }
+
+  .copy-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(255,255,255,0.92);
+    color: var(--text-primary);
+    font-size: 10px;
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    padding: 3px 8px;
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+  }
+
+  .color-card:hover .copy-badge {
+    opacity: 1;
+  }
+
+  .copied-toast {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--text-primary);
+    color: #fff;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    padding: 10px 20px;
+    border-radius: 100px;
+    opacity: 0;
+    transition: all 0.25s ease;
+    pointer-events: none;
+    z-index: 999;
+  }
+
+  .copied-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  @media (max-width: 600px) {
+    .palette-grid.cols-4, .palette-grid.cols-5 { grid-template-columns: repeat(2, 1fr); }
+    .palette-grid.cols-3 { grid-template-columns: repeat(2, 1fr); }
+    body { padding: 32px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-area">
+    <h1>KoboToolbox</h1>
+    <h2>Color Palette</h2>
+    <p class="subtitle">Brand Identity Guidelines</p>
+  </div>
+  <div class="tip">Click any swatch to copy hex code</div>
+</header>
+
+<!-- PRIMARY BLUES -->
+<div class="section">
+  <div class="section-label">Primary Blues</div>
+  <div class="palette-grid cols-4">
+    <div class="color-card" onclick="copyColor('#2490EB', this)">
+      <div class="color-swatch tall" style="background:#2490EB;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Kobo Blue</div>
+        <div class="color-hex">#2490EB</div>
+        <div class="color-extra">Primary Brand</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#1B6DB5', this)">
+      <div class="color-swatch tall" style="background:#1B6DB5;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Deep Blue</div>
+        <div class="color-hex">#1B6DB5</div>
+        <div class="color-extra">Dark Variant</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#1A3A6B', this)">
+      <div class="color-swatch tall" style="background:#1A3A6B;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Navy Blue</div>
+        <div class="color-hex">#1A3A6B</div>
+        <div class="color-extra">Dark Backgrounds</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#1D4E8F', this)">
+      <div class="color-swatch tall" style="background:#1D4E8F;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Mid Navy</div>
+        <div class="color-hex">#1D4E8F</div>
+        <div class="color-extra">Icon / UI Blue</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LIGHT BLUES -->
+<div class="section">
+  <div class="section-label">Light Blues & Tints</div>
+  <div class="palette-grid cols-4">
+    <div class="color-card" onclick="copyColor('#D6E8FA', this)">
+      <div class="color-swatch" style="background:#D6E8FA; border-bottom: 1px solid #dde4ef;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Sky Tint</div>
+        <div class="color-hex">#D6E8FA</div>
+        <div class="color-extra">Icon Backgrounds</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#E8F1FB', this)">
+      <div class="color-swatch" style="background:#E8F1FB; border-bottom: 1px solid #dde4ef;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Pale Blue</div>
+        <div class="color-hex">#E8F1FB</div>
+        <div class="color-extra">Card / Surface</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#F0F4FA', this)">
+      <div class="color-swatch" style="background:#F0F4FA; border-bottom: 1px solid #dde4ef;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Background Blue</div>
+        <div class="color-hex">#F0F4FA</div>
+        <div class="color-extra">Page Background</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#3DAEE9', this)">
+      <div class="color-swatch" style="background:#3DAEE9;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Bright Blue</div>
+        <div class="color-hex">#3DAEE9</div>
+        <div class="color-extra">Toolbox Wordmark</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NEUTRALS -->
+<div class="section">
+  <div class="section-label">Neutrals & Text</div>
+  <div class="palette-grid cols-5">
+    <div class="color-card" onclick="copyColor('#3D4966', this)">
+      <div class="color-swatch" style="background:#3D4966;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Dark Slate</div>
+        <div class="color-hex">#3D4966</div>
+        <div class="color-extra">Logo "Kobo"</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#4A5568', this)">
+      <div class="color-swatch" style="background:#4A5568;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Slate Gray</div>
+        <div class="color-hex">#4A5568</div>
+        <div class="color-extra">Body Text</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#6B7A99', this)">
+      <div class="color-swatch" style="background:#6B7A99;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Cool Gray</div>
+        <div class="color-hex">#6B7A99</div>
+        <div class="color-extra">Secondary Text</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#DDE4EF', this)">
+      <div class="color-swatch" style="background:#DDE4EF; border-bottom: 1px solid #dde4ef;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Border</div>
+        <div class="color-hex">#DDE4EF</div>
+        <div class="color-extra">Dividers / Lines</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#FFFFFF', this)">
+      <div class="color-swatch" style="background:#FFFFFF; border-bottom: 1px solid #dde4ef;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">White</div>
+        <div class="color-hex">#FFFFFF</div>
+        <div class="color-extra">Surfaces / Cards</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ACCENT COLORS -->
+<div class="section">
+  <div class="section-label">Accent Colors — Storm</div>
+  <div class="palette-grid cols-3">
+    <div class="color-card" onclick="copyColor('#7386B9', this)">
+      <div class="color-swatch tall" style="background:#7386B9;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Storm</div>
+        <div class="color-hex">#7386B9</div>
+        <div class="color-extra">hsl(224, 33%, 59%)</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#B8C2DC', this)">
+      <div class="color-swatch tall" style="background:#B8C2DC;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Mid Storm</div>
+        <div class="color-hex">#B8C2DC</div>
+        <div class="color-extra">hsl(223, 34%, 79%)</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#EEF0F6', this)">
+      <div class="color-swatch tall" style="background:#EEF0F6; border-bottom: 1px solid #dde4ef;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Light Storm</div>
+        <div class="color-hex">#EEF0F6</div>
+        <div class="color-extra">hsl(225, 31%, 95%)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Accent Colors — Pink</div>
+  <div class="palette-grid cols-3">
+    <div class="color-card" onclick="copyColor('#C577D5', this)">
+      <div class="color-swatch tall" style="background:#C577D5;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Pink</div>
+        <div class="color-hex">#C577D5</div>
+        <div class="color-extra">hsl(290, 53%, 65%)</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#E6C5ED', this)">
+      <div class="color-swatch tall" style="background:#E6C5ED;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Mid Pink</div>
+        <div class="color-hex">#E6C5ED</div>
+        <div class="color-extra">hsl(290, 53%, 85%)</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#F4E5F7', this)">
+      <div class="color-swatch tall" style="background:#F4E5F7; border-bottom: 1px solid #dde4ef;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Light Pink</div>
+        <div class="color-hex">#F4E5F7</div>
+        <div class="color-extra">hsl(290, 53%, 93%)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FUNCTIONAL -->
+<div class="section">
+  <div class="section-label">Functional & Accent</div>
+  <div class="palette-grid cols-3">
+    <div class="color-card" onclick="copyColor('#2ECC71', this)">
+      <div class="color-swatch" style="background:#2ECC71;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Success Green</div>
+        <div class="color-hex">#2ECC71</div>
+        <div class="color-extra">Checkmarks / Confirmed</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#E74C3C', this)">
+      <div class="color-swatch" style="background:#E74C3C;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Alert Red</div>
+        <div class="color-hex">#E74C3C</div>
+        <div class="color-extra">Errors / Warnings</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#F39C12', this)">
+      <div class="color-swatch" style="background:#F39C12;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Amber</div>
+        <div class="color-hex">#F39C12</div>
+        <div class="color-extra">Caution / Highlights</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="copied-toast" id="toast"></div>
+
+<script>
+  function copyColor(hex, card) {
+    navigator.clipboard.writeText(hex).then(() => {
+      const toast = document.getElementById('toast');
+      toast.textContent = hex + ' copied!';
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 1800);
+    });
+  }
+</script>
+</body>
+</html>
