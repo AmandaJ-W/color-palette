@@ -93,6 +93,7 @@
   .palette-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
   .palette-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
   .palette-grid.cols-5 { grid-template-columns: repeat(5, 1fr); }
+  .palette-grid.cols-6 { grid-template-columns: repeat(6, 1fr); }
 
   .color-card {
     background: var(--surface);
@@ -188,7 +189,7 @@
   }
 
   @media (max-width: 600px) {
-    .palette-grid.cols-4, .palette-grid.cols-5 { grid-template-columns: repeat(2, 1fr); }
+    .palette-grid.cols-4, .palette-grid.cols-5, .palette-grid.cols-6 { grid-template-columns: repeat(2, 1fr); }
     .palette-grid.cols-3 { grid-template-columns: repeat(2, 1fr); }
     body { padding: 32px 16px; }
   }
@@ -206,87 +207,62 @@
 </header>
 
  
-<!-- PRIMARY BLUES -->
+<!-- BLUES -->
 <div class="section">
-  <div class="section-label">Primary Blues</div>
-  <div class="palette-grid cols-4">
-    <div class="color-card" onclick="copyColor('#2490EB', this)">
-      <div class="color-swatch tall" style="background:#2490EB;"></div>
+  <div class="section-label">Blues</div>
+  <div class="palette-grid cols-6">
+    <div class="color-card" onclick="copyColor('#135991', this)">
+      <div class="color-swatch tall" style="background:#135991;"></div>
       <div class="copy-badge">Copy</div>
       <div class="color-info">
-        <div class="color-name">Kobo Blue</div>
-        <div class="color-hex">#2490EB</div>
-        <div class="color-extra">Primary Brand</div>
+        <div class="color-name">Dark Blue</div>
+        <div class="color-hex">#135991</div>
+        <div class="color-extra">hsl(207, 77%, 32%)</div>
       </div>
     </div>
-    <div class="color-card" onclick="copyColor('#1B6DB5', this)">
-      <div class="color-swatch tall" style="background:#1B6DB5;"></div>
+    <div class="color-card" onclick="copyColor('#1977C2', this)">
+      <div class="color-swatch tall" style="background:#1977C2;"></div>
       <div class="copy-badge">Copy</div>
       <div class="color-info">
-        <div class="color-name">Deep Blue</div>
-        <div class="color-hex">#1B6DB5</div>
-        <div class="color-extra">Dark Variant</div>
+        <div class="color-name">Hover Blue</div>
+        <div class="color-hex">#1977C2</div>
+        <div class="color-extra">hsl(207, 77%, 43%)</div>
       </div>
     </div>
-    <div class="color-card" onclick="copyColor('#1A3A6B', this)">
-      <div class="color-swatch tall" style="background:#1A3A6B;"></div>
+    <div class="color-card" onclick="copyColor('#2095F3', this)">
+      <div class="color-swatch tall" style="background:#2095F3;"></div>
       <div class="copy-badge">Copy</div>
       <div class="color-info">
-        <div class="color-name">Navy Blue</div>
-        <div class="color-hex">#1A3A6B</div>
-        <div class="color-extra">Dark Backgrounds</div>
+        <div class="color-name">Primary Blue</div>
+        <div class="color-hex">#2095F3</div>
+        <div class="color-extra">hsl(207, 90%, 54%)</div>
       </div>
     </div>
-    <div class="color-card" onclick="copyColor('#1D4E8F', this)">
-      <div class="color-swatch tall" style="background:#1D4E8F;"></div>
+    <div class="color-card" onclick="copyColor('#8FCAF9', this)">
+      <div class="color-swatch tall" style="background:#8FCAF9;"></div>
       <div class="copy-badge">Copy</div>
       <div class="color-info">
-        <div class="color-name">Mid Navy</div>
-        <div class="color-hex">#1D4E8F</div>
-        <div class="color-extra">Icon / UI Blue</div>
+        <div class="color-name">Mid Blue</div>
+        <div class="color-hex">#8FCAF9</div>
+        <div class="color-extra">hsl(207, 90%, 77%)</div>
       </div>
     </div>
-  </div>
-</div>
-
-<!-- LIGHT BLUES -->
-<div class="section">
-  <div class="section-label">Light Blues & Tints</div>
-  <div class="palette-grid cols-4">
-    <div class="color-card" onclick="copyColor('#D6E8FA', this)">
-      <div class="color-swatch" style="background:#D6E8FA; border-bottom: 1px solid #dde4ef;"></div>
+    <div class="color-card" onclick="copyColor('#D2E9FC', this)">
+      <div class="color-swatch tall" style="background:#D2E9FC; border-bottom: 1px solid #dde4ef;"></div>
       <div class="copy-badge">Copy</div>
       <div class="color-info">
-        <div class="color-name">Sky Tint</div>
-        <div class="color-hex">#D6E8FA</div>
-        <div class="color-extra">Icon Backgrounds</div>
+        <div class="color-name">Light Blue</div>
+        <div class="color-hex">#D2E9FC</div>
+        <div class="color-extra">hsl(207, 88%, 91%)</div>
       </div>
     </div>
-    <div class="color-card" onclick="copyColor('#E8F1FB', this)">
-      <div class="color-swatch" style="background:#E8F1FB; border-bottom: 1px solid #dde4ef;"></div>
-      <div class="copy-badge">Copy</div>
-      <div class="color-info">
-        <div class="color-name">Pale Blue</div>
-        <div class="color-hex">#E8F1FB</div>
-        <div class="color-extra">Card / Surface</div>
-      </div>
-    </div>
-    <div class="color-card" onclick="copyColor('#F0F4FA', this)">
-      <div class="color-swatch" style="background:#F0F4FA; border-bottom: 1px solid #dde4ef;"></div>
+    <div class="color-card" onclick="copyColor('#E8F4FD', this)">
+      <div class="color-swatch tall" style="background:#E8F4FD; border-bottom: 1px solid #dde4ef;"></div>
       <div class="copy-badge">Copy</div>
       <div class="color-info">
         <div class="color-name">Background Blue</div>
-        <div class="color-hex">#F0F4FA</div>
-        <div class="color-extra">Page Background</div>
-      </div>
-    </div>
-    <div class="color-card" onclick="copyColor('#3DAEE9', this)">
-      <div class="color-swatch" style="background:#3DAEE9;"></div>
-      <div class="copy-badge">Copy</div>
-      <div class="color-info">
-        <div class="color-name">Bright Blue</div>
-        <div class="color-hex">#3DAEE9</div>
-        <div class="color-extra">Toolbox Wordmark</div>
+        <div class="color-hex">#E8F4FD</div>
+        <div class="color-extra">hsl(206, 84%, 95%)</div>
       </div>
     </div>
   </div>
@@ -296,40 +272,85 @@
 <div class="section">
   <div class="section-label">Neutrals & Text</div>
   <div class="palette-grid cols-5">
-    <div class="color-card" onclick="copyColor('#3D4966', this)">
-      <div class="color-swatch" style="background:#3D4966;"></div>
+    <div class="color-card" onclick="copyColor('#1E212A', this)">
+      <div class="color-swatch" style="background:#1E212A;"></div>
       <div class="copy-badge">Copy</div>
       <div class="color-info">
-        <div class="color-name">Dark Slate</div>
-        <div class="color-hex">#3D4966</div>
-        <div class="color-extra">Logo "Kobo"</div>
+        <div class="color-name">Black</div>
+        <div class="color-hex">#1E212A</div>
+        <div class="color-extra">hsl(225, 17%, 14%)</div>
       </div>
     </div>
-    <div class="color-card" onclick="copyColor('#4A5568', this)">
-      <div class="color-swatch" style="background:#4A5568;"></div>
+    <div class="color-card" onclick="copyColor('#333847', this)">
+      <div class="color-swatch" style="background:#333847;"></div>
       <div class="copy-badge">Copy</div>
       <div class="color-info">
-        <div class="color-name">Slate Gray</div>
-        <div class="color-hex">#4A5568</div>
-        <div class="color-extra">Body Text</div>
+        <div class="color-name">Text</div>
+        <div class="color-hex">#333847</div>
+        <div class="color-extra">hsl(225, 16%, 24%)</div>
       </div>
     </div>
-    <div class="color-card" onclick="copyColor('#6B7A99', this)">
-      <div class="color-swatch" style="background:#6B7A99;"></div>
+    <div class="color-card" onclick="copyColor('#5A627D', this)">
+      <div class="color-swatch" style="background:#5A627D;"></div>
       <div class="copy-badge">Copy</div>
       <div class="color-info">
-        <div class="color-name">Cool Gray</div>
-        <div class="color-hex">#6B7A99</div>
-        <div class="color-extra">Secondary Text</div>
+        <div class="color-name">Dark Blue-Gray</div>
+        <div class="color-hex">#5A627D</div>
+        <div class="color-extra">hsl(226, 16%, 42%)</div>
       </div>
     </div>
-    <div class="color-card" onclick="copyColor('#DDE4EF', this)">
-      <div class="color-swatch" style="background:#DDE4EF; border-bottom: 1px solid #dde4ef;"></div>
+    <div class="color-card" onclick="copyColor('#828BA5', this)">
+      <div class="color-swatch" style="background:#828BA5;"></div>
       <div class="copy-badge">Copy</div>
       <div class="color-info">
-        <div class="color-name">Border</div>
-        <div class="color-hex">#DDE4EF</div>
-        <div class="color-extra">Dividers / Lines</div>
+        <div class="color-name">Mid Blue-Gray</div>
+        <div class="color-hex">#828BA5</div>
+        <div class="color-extra">hsl(225, 16%, 58%)</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#A6ACBF', this)">
+      <div class="color-swatch" style="background:#A6ACBF;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Light Blue-Gray</div>
+        <div class="color-hex">#A6ACBF</div>
+        <div class="color-extra">hsl(226, 16%, 70%)</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#CACDD9', this)">
+      <div class="color-swatch" style="background:#CACDD9; border-bottom: 1px solid #dde4ef;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Dark Grey</div>
+        <div class="color-hex">#CACDD9</div>
+        <div class="color-extra">hsl(228, 16%, 82%)</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#E1E3EA', this)">
+      <div class="color-swatch" style="background:#E1E3EA; border-bottom: 1px solid #dde4ef;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Mid Gray</div>
+        <div class="color-hex">#E1E3EA</div>
+        <div class="color-extra">hsl(227, 18%, 90%)</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#EDEEF2', this)">
+      <div class="color-swatch" style="background:#EDEEF2; border-bottom: 1px solid #dde4ef;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Light Gray</div>
+        <div class="color-hex">#EDEEF2</div>
+        <div class="color-extra">hsl(228, 16%, 94%)</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#F9F9FB', this)">
+      <div class="color-swatch" style="background:#F9F9FB; border-bottom: 1px solid #dde4ef;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Background Gray</div>
+        <div class="color-hex">#F9F9FB</div>
+        <div class="color-extra">hsl(240, 20%, 98%)</div>
       </div>
     </div>
     <div class="color-card" onclick="copyColor('#FFFFFF', this)">
@@ -338,7 +359,68 @@
       <div class="color-info">
         <div class="color-name">White</div>
         <div class="color-hex">#FFFFFF</div>
-        <div class="color-extra">Surfaces / Cards</div>
+        <div class="color-extra">hsl(0, 0%, 100%)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECONDARY COLORS -->
+<div class="section">
+  <div class="section-label">Secondary Colors</div>
+  <div class="palette-grid cols-6">
+    <div class="color-card" onclick="copyColor('#1B5E64', this)">
+      <div class="color-swatch tall" style="background:#1B5E64;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Dark Teal</div>
+        <div class="color-hex">#1B5E64</div>
+        <div class="color-extra">hsl(185, 57%, 25%)</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#26838C', this)">
+      <div class="color-swatch tall" style="background:#26838C;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Hover Teal</div>
+        <div class="color-hex">#26838C</div>
+        <div class="color-extra">hsl(185, 57%, 35%)</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#52C5D0', this)">
+      <div class="color-swatch tall" style="background:#52C5D0;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Teal</div>
+        <div class="color-hex">#52C5D0</div>
+        <div class="color-extra">hsl(185, 57%, 57%)</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#9BDDE4', this)">
+      <div class="color-swatch tall" style="background:#9BDDE4;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Mid Teal</div>
+        <div class="color-hex">#9BDDE4</div>
+        <div class="color-extra">hsl(186, 57%, 75%)</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#C3EBEF', this)">
+      <div class="color-swatch tall" style="background:#C3EBEF; border-bottom: 1px solid #dde4ef;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Light Teal</div>
+        <div class="color-hex">#C3EBEF</div>
+        <div class="color-extra">hsl(185, 58%, 85%)</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#EBF8FA', this)">
+      <div class="color-swatch tall" style="background:#EBF8FA; border-bottom: 1px solid #dde4ef;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Background Teal</div>
+        <div class="color-hex">#EBF8FA</div>
+        <div class="color-extra">hsl(188, 60%, 95%)</div>
       </div>
     </div>
   </div>
@@ -346,7 +428,7 @@
 
 <!-- ACCENT COLORS -->
 <div class="section">
-  <div class="section-label">Accent Colors — Storm</div>
+  <div class="section-label">Accent Colors</div>
   <div class="palette-grid cols-3">
     <div class="color-card" onclick="copyColor('#7386B9', this)">
       <div class="color-swatch tall" style="background:#7386B9;"></div>
@@ -375,12 +457,6 @@
         <div class="color-extra">hsl(225, 31%, 95%)</div>
       </div>
     </div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-label">Accent Colors — Pink</div>
-  <div class="palette-grid cols-3">
     <div class="color-card" onclick="copyColor('#C577D5', this)">
       <div class="color-swatch tall" style="background:#C577D5;"></div>
       <div class="copy-badge">Copy</div>
@@ -391,7 +467,7 @@
       </div>
     </div>
     <div class="color-card" onclick="copyColor('#E6C5ED', this)">
-      <div class="color-swatch tall" style="background:#E6C5ED;"></div>
+      <div class="color-swatch tall" style="background:#E6C5ED; border-bottom: 1px solid #dde4ef;"></div>
       <div class="copy-badge">Copy</div>
       <div class="color-info">
         <div class="color-name">Mid Pink</div>
@@ -436,62 +512,103 @@
   </div>
 </div>
 
-<!-- FUNCTIONAL -->
+<!-- STATUS — ERROR -->
 <div class="section">
-  <div class="section-label">Functional & Accent</div>
+  <div class="section-label">Status — Error</div>
   <div class="palette-grid cols-3">
-    <div class="color-card" onclick="copyColor('#2ECC71', this)">
-      <div class="color-swatch" style="background:#2ECC71;"></div>
+    <div class="color-card" onclick="copyColor('#850000', this)">
+      <div class="color-swatch" style="background:#850000;"></div>
       <div class="copy-badge">Copy</div>
       <div class="color-info">
-        <div class="color-name">Success Green</div>
-        <div class="color-hex">#2ECC71</div>
-        <div class="color-extra">Checkmarks / Confirmed</div>
+        <div class="color-name">Dark Red</div>
+        <div class="color-hex">#850000</div>
+        <div class="color-extra">hsl(0, 100%, 26%)</div>
       </div>
     </div>
-    <div class="color-card" onclick="copyColor('#E74C3C', this)">
-      <div class="color-swatch" style="background:#E74C3C;"></div>
+    <div class="color-card" onclick="copyColor('#FF8080', this)">
+      <div class="color-swatch" style="background:#FF8080;"></div>
       <div class="copy-badge">Copy</div>
       <div class="color-info">
-        <div class="color-name">Alert Red</div>
-        <div class="color-hex">#E74C3C</div>
-        <div class="color-extra">Errors / Warnings</div>
+        <div class="color-name">Red</div>
+        <div class="color-hex">#FF8080</div>
+        <div class="color-extra">hsl(0, 100%, 75%)</div>
       </div>
     </div>
-    <div class="color-card" onclick="copyColor('#F39C12', this)">
-      <div class="color-swatch" style="background:#F39C12;"></div>
+    <div class="color-card" onclick="copyColor('#FFE9E9', this)">
+      <div class="color-swatch" style="background:#FFE9E9; border-bottom: 1px solid #dde4ef;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Light Red</div>
+        <div class="color-hex">#FFE9E9</div>
+        <div class="color-extra">hsl(0, 100%, 96%)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATUS — WARNING -->
+<div class="section">
+  <div class="section-label">Status — Warning</div>
+  <div class="palette-grid cols-3">
+    <div class="color-card" onclick="copyColor('#803F00', this)">
+      <div class="color-swatch" style="background:#803F00;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Dark Amber</div>
+        <div class="color-hex">#803F00</div>
+        <div class="color-extra">hsl(30, 100%, 25%)</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#FFBE80', this)">
+      <div class="color-swatch" style="background:#FFBE80;"></div>
       <div class="copy-badge">Copy</div>
       <div class="color-info">
         <div class="color-name">Amber</div>
-        <div class="color-hex">#F39C12</div>
-        <div class="color-extra">Caution / Highlights</div>
+        <div class="color-hex">#FFBE80</div>
+        <div class="color-extra">hsl(29, 100%, 75%)</div>
       </div>
     </div>
-    <div class="color-card" onclick="copyColor('#385B47', this)">
-      <div class="color-swatch" style="background:#385B47;"></div>
+    <div class="color-card" onclick="copyColor('#FFE5CC', this)">
+      <div class="color-swatch" style="background:#FFE5CC; border-bottom: 1px solid #dde4ef;"></div>
       <div class="copy-badge">Copy</div>
       <div class="color-info">
-        <div class="color-name">Forest Green</div>
-        <div class="color-hex">#385B47</div>
-        <div class="color-extra">Custom Accent</div>
+        <div class="color-name">Light Amber</div>
+        <div class="color-hex">#FFE5CC</div>
+        <div class="color-extra">hsl(30, 100%, 90%)</div>
       </div>
     </div>
-    <div class="color-card" onclick="copyColor('#703A8F', this)">
-      <div class="color-swatch" style="background:#703A8F;"></div>
+  </div>
+</div>
+
+<!-- STATUS — SUCCESS -->
+<div class="section">
+  <div class="section-label">Status — Success</div>
+  <div class="palette-grid cols-3">
+    <div class="color-card" onclick="copyColor('#178949', this)">
+      <div class="color-swatch" style="background:#178949;"></div>
       <div class="copy-badge">Copy</div>
       <div class="color-info">
-        <div class="color-name">Deep Purple</div>
-        <div class="color-hex">#703A8F</div>
-        <div class="color-extra">Custom Accent</div>
+        <div class="color-name">Dark Green</div>
+        <div class="color-hex">#178949</div>
+        <div class="color-extra">hsl(146, 71%, 31%)</div>
       </div>
     </div>
-    <div class="color-card" onclick="copyColor('#FAB96F', this)">
-      <div class="color-swatch" style="background:#FAB96F;"></div>
+    <div class="color-card" onclick="copyColor('#92EDBA', this)">
+      <div class="color-swatch" style="background:#92EDBA;"></div>
       <div class="copy-badge">Copy</div>
       <div class="color-info">
-        <div class="color-name">Peach</div>
-        <div class="color-hex">#FAB96F</div>
-        <div class="color-extra">Custom Accent</div>
+        <div class="color-name">Green</div>
+        <div class="color-hex">#92EDBA</div>
+        <div class="color-extra">hsl(146, 72%, 75%)</div>
+      </div>
+    </div>
+    <div class="color-card" onclick="copyColor('#E9FBF1', this)">
+      <div class="color-swatch" style="background:#E9FBF1; border-bottom: 1px solid #dde4ef;"></div>
+      <div class="copy-badge">Copy</div>
+      <div class="color-info">
+        <div class="color-name">Light Green</div>
+        <div class="color-hex">#E9FBF1</div>
+        <div class="color-extra">hsl(147, 69%, 95%)</div>
       </div>
     </div>
   </div>
